@@ -21,8 +21,8 @@ services:
           create_host_path: false
           selinux: Z
       - type: bind
-        source: $HOME/.gazebo
-        target: $HOME/.gazebo
+        source: $HOME/.gz
+        target: $HOME/.gz
         bind:
           create_host_path: false
           selinux: Z
@@ -51,7 +51,7 @@ services:
     build:
       context: ../
       args:
-        FROM_IMAGE: ${FROM_IMAGE:-ghcr.io/tirrex-roboterrium/tirrex_workspace:full}
+        FROM_IMAGE: ${FROM_IMAGE:-ghcr.io/tirrex-roboterrium/tirrex_workspace:full-jazzy}
         UID: ${UID}
         GID: ${GID}
         USER: ${USER}
@@ -75,8 +75,8 @@ services:
     environment:
       - DISPLAY
       - XDG_RUNTIME_DIR
-      - GAZEBO_RESOURCE_PATH
-      - GAZEBO_MODEL_PATH
+      - GZ_SIM_RESOURCE_PATH=${WORKSPACE}/gazebo/worlds:${WORKSPACE}/gazebo/models
+      - GZ_GUI_RESOURCE_PATH=${WORKSPACE}/gazebo/gui
   
   x11_gpu:  # used by services which requires GPU (and GUI)
     extends:

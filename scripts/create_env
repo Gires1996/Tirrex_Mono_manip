@@ -30,7 +30,7 @@ initialize_env_file() {
 # This prevents docker from creating them using root user.
 create_binded_files() {
   mkdir -p src
-  mkdir -p "${HOME}/.gazebo"
+  mkdir -p "${HOME}/.gz"
   mkdir -p "${HOME}/.ros"
   mkdir -p "${HOME}/.config/ros.org"
   touch -a "${HOME}/.bash_history"
