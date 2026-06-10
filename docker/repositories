@@ -8,7 +8,7 @@ repositories:
   demos/examples:
     type: git
     url: https://forge.inrae.fr/tirrex/config_examples.git
-    version: main
+    version: jazzy
   # add your repos here
 
 # vim: ft=yaml
