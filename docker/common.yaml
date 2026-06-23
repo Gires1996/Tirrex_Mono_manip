@@ -63,7 +63,7 @@ services:
       service: base
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:Z
-      - $XDG_RUNTIME_DIR:$XDG_RUNTIME_DIR:Z
+      - ${XDG_RUNTIME_DIR:-/run/user/${UID}}:$XDG_RUNTIME_DIR:Z
       - type: bind
         source: $HOME/.Xauthority
         target: $HOME/.Xauthority
